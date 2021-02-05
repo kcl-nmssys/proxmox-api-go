@@ -626,6 +626,7 @@ func (c *Client) RollbackQemuVm(vmr *VmRef, snapshot string) (exitStatus string,
 func (c *Client) SetVmConfig(vmr *VmRef, vmParams map[string]interface{}) (exitStatus interface{}, err error) {
 	reqbody := ParamsToBody(vmParams)
 	url := fmt.Sprintf("/nodes/%s/%s/%d/config", vmr.node, vmr.vmType, vmr.vmId)
+	print("XAND")
 	resp, err := c.session.Post(url, nil, nil, &reqbody)
 	if err == nil {
 		taskResponse, err := ResponseJSON(resp)
